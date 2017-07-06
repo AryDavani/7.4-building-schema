@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Jackets - Collection</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/css/materialize.min.css">
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="center-align">Jackets</h1>
+      {{#model}}
+        <div class="yellow lighten-3">
+          <div class="">
+            Style: {{style}}
+          </div>
+          <div class="">
+            Brand: {{brand}}
+          </div>
+          <div class="">
+            Color: {{#color}}{{.}}{{/color}}
+          </div>
+          <div class="">
+            Materials:
+            <ul>
+              {{#materials}}
+                <li>{{percentage}}% {{fabricType}}</li>
+              {{/materials}}
+            </ul>
+          </div>
+        </div>
+      {{/model}}
+
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/js/materialize.min.js"></script>
+  </body>
+</html>
