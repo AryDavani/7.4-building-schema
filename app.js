@@ -21,5 +21,6 @@ app.get('/', jacketController.home);
 app.get('/jackets', jacketController.list);
 app.get('/materials', jacketController.material)
 app.post('/add', jacketController.add);
+app.post('/addMaterials', jacketController.addMaterials);
 
 app.listen(3000);
