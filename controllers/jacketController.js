@@ -22,6 +22,9 @@ module.exports = {
     jacket.save();
 
     res.redirect('/');
+  },
+  material: function(req, res) {
+    res.render('materials');
   }
 
 }

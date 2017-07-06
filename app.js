@@ -19,6 +19,7 @@ mongoose.connect('mongodb://localhost:27017/jacketdb');
 
 app.get('/', jacketController.home);
 app.get('/jackets', jacketController.list);
+app.get('/materials', jacketController.material)
 app.post('/add', jacketController.add);
 
 app.listen(3000);
