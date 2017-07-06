@@ -4,12 +4,13 @@
     <meta charset="utf-8">
     <title>Jackets - Collection</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/css/materialize.min.css">
+    <link rel="stylesheet" href="styles.css">
   </head>
   <body>
     <div class="container">
       <h1 class="center-align">Jackets</h1>
       {{#model}}
-        <div class="yellow lighten-3">
+        <div class="padding margin blue lighten-4">
           <div class="">
             Style: {{style}}
           </div>
@@ -20,13 +21,24 @@
             Color: {{#color}}{{.}}{{/color}}
           </div>
           <div class="">
-            <a href="/materials">Add Materials</a>
+            Materials:
             <ul>
               {{#materials}}
                 <li>{{percentage}}% {{fabricType}}</li>
               {{/materials}}
             </ul>
           </div>
+          <div class="flex">
+            <form class="" action="/delete" method="post">
+              <input type="hidden" name="id" value="{{_id}}">
+              <button class="margin red" type="submit" name="button">Delete</button>
+            </form>
+            <form class="" action="/edit" method="post">
+              <input type="hidden" name="id" value="{{_id}}">
+              <button class="margin yellow" type="submit" name="button">Edit</button>
+            </form>
+          </div>
+
         </div>
       {{/model}}
 
