@@ -7,5 +7,4 @@ module.exports = function(app) {
   app.post('/delete', jacketController.deleted);
   app.post('/edit', jacketController.edit);
   app.post('/update', jacketController.update);
-
 };

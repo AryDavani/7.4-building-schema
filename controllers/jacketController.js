@@ -1,5 +1,6 @@
 const Jacket = require('../models/jacket');
-let newID = '';
+
+let editID = '';
 
 module.exports = {
 
@@ -40,11 +41,22 @@ module.exports = {
   },
 
   update: function(req, res) {
-    newID = '';
+    let styleData = req.body.style;
+    let brandData = req.body.brand;
+    let colorData = req.body.color;
+    let fabricData = req.body.fabric;
+    let percentData = req.body.percent;
 
-    // update code goes here
-    // Jacket.update({})
-
+    // Jacket.find({ _id: editID }, function(jacket) {
+    //   jacket.style = styleData,
+    //   jacket.brand = brandData,
+    //   jacket.color = [colorData],
+    //   jacket.materials.fabricType = fabricData,
+    //   jacket.materials.percentage = percentData,
+    //   jacket.save();
+    // }).then(function() {
+    //   res.redirect('/jackets');
+    // });
     res.redirect('/jackets');
   },
 

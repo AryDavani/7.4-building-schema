@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
 
-
 //defining schema
 const jacketSchema = new mongoose.Schema({
   style: String,
