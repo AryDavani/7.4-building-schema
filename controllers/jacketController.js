@@ -35,9 +35,10 @@ module.exports = {
   },
 
   edit: function(req, res) {
-    newID = req.body.id;
-    console.log(newID);
-    res.render('edit');
+    editID = req.body.id;
+    Jacket.findOne({ _id: editID }).then(function(result) {
+      res.render('edit', { model: result })
+    });
   },
 
   update: function(req, res) {
@@ -47,17 +48,23 @@ module.exports = {
     let fabricData = req.body.fabric;
     let percentData = req.body.percent;
 
-    // Jacket.find({ _id: editID }, function(jacket) {
-    //   jacket.style = styleData,
-    //   jacket.brand = brandData,
-    //   jacket.color = [colorData],
-    //   jacket.materials.fabricType = fabricData,
-    //   jacket.materials.percentage = percentData,
-    //   jacket.save();
-    // }).then(function() {
-    //   res.redirect('/jackets');
-    // });
-    res.redirect('/jackets');
+    console.log(editID);
+
+    Jacket.findOne({ _id: editID }).then(function(result){
+      if (styleData) {
+        result.style = styleData
+      } else if (brandData) {
+        result.brand = brandData
+      } else if (colorData) {
+        result.color = [colorData]
+      } else if (fabricData) {
+        result.materials.fabric = fabricData
+      } else if (percentData) {
+        result.materials.percentage
+      }
+      result.save();
+      res.redirect('/jackets');
+    });
   },
 
   deleted: function(req, res) {

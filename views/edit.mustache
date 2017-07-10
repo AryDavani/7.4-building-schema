@@ -6,29 +6,34 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/css/materialize.min.css">
   </head>
   <body>
+    {{#model}}
     <div class="container">
       <h1>Edit Jacket</h1>
       <form class="" action="/update" method="post">
         <div class="">
           <label for="style">Style</label>
-          <input id="style" type="text" name="style" value="">
+          <input id="style" type="text" name="style" value="" placeholder="{{style}}">
         </div>
         <div class="">
           <label for="brand">Brand</label>
-          <input id="brand" type="text" name="brand" value="">
+          <input id="brand" type="text" name="brand" value="" placeholder="{{brand}}">
         </div>
         <div class="">
           <label for="color">Color</label>
-          <input id="color" type="text" name="color" value="">
+          <input id="color" type="text" name="color" value="" placeholder="{{#color}}{{.}}{{/color}}">
         </div>
         <div class="">
           <label for="materials">Materials</label>
-          <input type="text" name="fabric" value="" placeholder="Fabric Type">
-          <input type="text" name="percent" value="" placeholder="Percent (number)">
+          {{#materials}}
+            <input type="text" name="fabric" value="" placeholder="Fabric: {{fabricType}}">
+            <input type="text" name="percent" value="" placeholder="Percent: {{percentage}}">
+          {{/materials}}
         </div>
         <button class="btn blue" type="submit" name="button">Update</button>
       </form>
     </div>
+    {{/model}}
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/js/materialize.min.js"></script>
   </body>
 </html>
